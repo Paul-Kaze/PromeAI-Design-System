@@ -1,0 +1,23 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body{margin:0;padding:20px;background:var(--bg-0);}
+  .row{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
+  .sw{border-radius:var(--radius-md);border:1px solid var(--border-2);overflow:hidden;}
+  .chip{height:72px;display:flex;align-items:flex-end;padding:10px;}
+  .meta{padding:8px 10px;background:var(--bg-1);border-top:1px solid var(--border-2);font-size:11px;line-height:1.35;}
+  .meta b{display:block;color:var(--fg-1);font-weight:600;}
+  .meta span{color:var(--fg-4);font-family:var(--font-mono);font-size:10px;letter-spacing:.02em;}
+</style></head>
+<body>
+<div class="row">
+  <div class="sw"><div class="chip" style="background:#000"></div><div class="meta"><b>bg-0</b><span>#000000</span></div></div>
+  <div class="sw"><div class="chip" style="background:#1E202A"></div><div class="meta"><b>bg-1 · panel</b><span>#1E202A</span></div></div>
+  <div class="sw"><div class="chip" style="background:#2C2D37"></div><div class="meta"><b>bg-3 · raised</b><span>#2C2D37</span></div></div>
+  <div class="sw"><div class="chip" style="background:#353643"></div><div class="meta"><b>bg-4 · menu</b><span>#353643</span></div></div>
+  <div class="sw"><div class="chip" style="background:#3E3F4E"></div><div class="meta"><b>hover</b><span>#3E3F4E</span></div></div>
+  <div class="sw"><div class="chip" style="background:#48495C"></div><div class="meta"><b>border-5 · input</b><span>#48495C</span></div></div>
+  <div class="sw"><div class="chip" style="background:#292C37"></div><div class="meta"><b>border-2 · panel</b><span>#292C37</span></div></div>
+  <div class="sw"><div class="chip" style="background:#424356"></div><div class="meta"><b>border-4 · menu</b><span>#424356</span></div></div>
+</div>
+</body></html>

@@ -1,0 +1,22 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body{margin:0;padding:22px;background:var(--bg-0);color:var(--fg-1);display:grid;grid-template-columns:auto 1fr;gap:22px;align-items:flex-start;}
+  .logos{display:flex;flex-direction:column;gap:10px;align-items:flex-start;}
+  .logos img{max-width:160px;height:auto;background:var(--bg-1);border:1px solid var(--border-2);border-radius:9px;padding:10px;}
+  .cursor{background:#0b0b10;border-radius:9px;padding:14px 16px;border:1px solid var(--border-2);display:flex;align-items:center;gap:10px;}
+  .cursor img{width:24px;height:24px;}
+  .gradmark{font-size:40px;font-weight:700;line-height:1;background:var(--gradient-brand);-webkit-background-clip:text;background-clip:text;color:transparent;letter-spacing:-0.02em;}
+  .meta{color:var(--fg-4);font-size:11px;font-family:var(--font-mono);letter-spacing:.04em;text-transform:uppercase;margin-top:6px;}
+</style></head>
+<body>
+  <div class="logos">
+    <img src="../assets/inspira-logo.png" alt="Inspira logo">
+    <div class="meta">inspira-logo.png</div>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:12px;">
+    <span class="gradmark">Inspira</span>
+    <span style="color:var(--fg-3);font-size:13px;line-height:1.5;max-width:440px">Wordmark rendered with the brand gradient (<code style="font-family:var(--font-mono);color:#C9CCD5">#4E9CFF → #A242FF</code>). Used sparingly — hero moments, login, about screens.</span>
+    <div class="cursor"><img src="../assets/inspira-cursor.svg" alt="cursor"> <span style="font-size:12px;color:var(--fg-2)">Canvas cursor · <code style="font-family:var(--font-mono);font-size:11px;color:var(--fg-4)">inspira-cursor.svg</code></span></div>
+  </div>
+</body></html>

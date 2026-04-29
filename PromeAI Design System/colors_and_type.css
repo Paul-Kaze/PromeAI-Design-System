@@ -1,0 +1,256 @@
+/* ------------------------------------------------------------------
+   PromeAI Design System · colors_and_type.css
+   Sourced from:
+     - promeai-web/assets/css/color_global.scss
+     - promeai-web/assets/css/global.css
+     - figma (promeai-颜色库, 26年一季度设计稿) METADATA.md
+   ------------------------------------------------------------------ */
+
+/* ───── Fonts ───────────────────────────────────────────────── */
+/* Primary marketing / UI: Poppins, Inter.
+   Product UI body copy in the app is Inter; marketing headings skew Poppins.
+   Brand-accent display (CN campaigns / banners): Outfit, Anton, Alimama ShuHeiTi,
+   DingTalk JinBuTi, Sansita One, Luckiest Guy, Paytone One. These ship via CDN
+   in the product; we reference Google Fonts where possible and fall back. */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&family=Anton&family=Sansita+One&family=Luckiest+Guy&family=Paytone+One&family=Noto+Sans+SC:wght@400;500;700&display=swap');
+
+/* ───── Color tokens ─────────────────────────────────────────── */
+:root {
+  /* ── Brand (gradient + accents) ───────────────────────────── */
+  --prome-grad-start: #2199da;      /* cyan-blue  */
+  --prome-grad-mid:   #348DFF;      /* Figma variant of the brand blue */
+  --prome-grad-end:   #9931ed;      /* violet     */
+  --prome-grad:        linear-gradient(135deg, #2199da 0%, #9931ed 100%);
+  --prome-grad-alt:    linear-gradient(135deg, #348DFF 0%, #9B35FF 100%); /* figma */
+  --prome-grad-60:     linear-gradient(135deg, rgba(33,153,218,.6), rgba(153,49,237,.6));
+  --prome-grad-soft:   linear-gradient(135deg, #3996CF 0%, rgba(125,100,249,.89) 100%);
+
+  /* Highlight / "signal" accent – used on CTAs, success pills, new-feature tags */
+  --lime-6: #c7f14c;                /* primary lime from codebase */
+  --lime-5: #d4f462;                /* figma variant (102× usage) */
+  --lime-soft: rgba(244,249,151,.5);
+
+  /* Secondary accent used across marketing + creative surfaces */
+  --coral:   #FF7085;
+  --magenta: #F984FF;
+  --indigo:  #4378E0;               /* indigo-05 from codebase */
+  --indigo-soft: rgba(125,100,249,.89); /* "purple glass" fills */
+
+  /* ── Neutrals · dark surface scale (the product is dark-first) ─ */
+  --ink-14:   #15181D;              /* deepest bg (blueGray-14) */
+  --ink-13:   #20232B;              /* app bg */
+  --ink-12:   #272B34;              /* card bg */
+  --ink-11:   #323843;              /* raised surface */
+  --ink-10:   #424A57;              /* border / divider */
+  --ink-09:   #4A5160;              /* hover outline */
+  --ink-08:   #5D5F78;              /* muted fg */
+  --ink-07:   #858A99;              /* secondary text */
+  --ink-05:   #9CA3AF;              /* tertiary text */
+  --ink-04:   #B3B8C2;              /* quiet meta */
+  --ink-03:   #E7E8EB;              /* line on dark */
+  --ink-02:   #F3F5F9;              /* light divider */
+  --ink-01:   #FFFFFF;              /* pure white */
+  --ink-00:   #0D0D0F;              /* near-black hero bg (figma iPhone frames) */
+
+  /* Toast / dialog surfaces (codebase) */
+  --toast-bg:     #21232B;
+  --toast-border: #34435C;
+
+  /* Semantic */
+  --error:  #FF0000;
+  --error-soft: rgba(255,0,0,.1);
+  --warn:   #FF8D1A;                /* orange "live" status dot */
+  --success: var(--lime-6);
+
+  /* ── Foreground semantic aliases (dark surfaces) ───────────── */
+  --fg-1: #FFFFFF;                  /* primary on dark */
+  --fg-2: rgba(255,255,255,.80);    /* body on dark */
+  --fg-3: rgba(255,255,255,.60);    /* muted on dark */
+  --fg-4: rgba(255,255,255,.40);    /* placeholder on dark */
+  --fg-link: #91A1FF;               /* inline links on dark surfaces */
+
+  /* On-light (rarely used – marketing white sections) */
+  --fg-on-light-1: #0B0C10;
+  --fg-on-light-2: #3C3F4D;
+  --fg-on-light-3: #6B6F7D;
+
+  /* ── Background stacks ─────────────────────────────────────── */
+  --bg-app:     #000000;             /* body/app root (global.css) */
+  --bg-panel:   linear-gradient(to bottom, #1A2437, #101215);
+  --bg-surface: #1E202A;            /* card on app bg */
+  --bg-raised:  #272B34;
+  --bg-input:   #212327;
+  --bg-hover:   rgba(255,255,255,.06);
+  --bg-press:   rgba(255,255,255,.10);
+  --bg-selected: #412C85;           /* "selected option" plum  */
+
+  /* ── Shadows ───────────────────────────────────────────────── */
+  --shadow-1: 0 1px 2px rgba(0,0,0,.25);
+  --shadow-2: 0 4px 12px rgba(0,0,0,.30);
+  --shadow-pop: 0 12px 32px rgba(0,0,0,.45);
+  --shadow-glow: 0 0 0 1px rgba(255,255,255,.06),
+                 0 12px 40px rgba(105,70,255,.25);
+  --shadow-inset-hi: inset 0 1px 1px rgba(1,255,179,.25); /* figma inner gloss on stars */
+
+  /* ── Radii ─────────────────────────────────────────────────── */
+  --r-xs: 3px;                       /* chip / tag */
+  --r-sm: 6px;                       /* field / small button */
+  --r-md: 9px;                       /* default card / button */
+  --r-lg: 12px;
+  --r-xl: 16px;
+  --r-2xl: 24px;
+  --r-pill: 999px;
+
+  /* ── Spacing (4px base) ────────────────────────────────────── */
+  --sp-0: 0;
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-5: 20px;
+  --sp-6: 24px;
+  --sp-8: 32px;
+  --sp-10: 40px;
+  --sp-12: 48px;
+  --sp-16: 64px;
+
+  /* ── Type stacks ───────────────────────────────────────────── */
+  --font-sans:    'Poppins', 'Helvetica Neue', Helvetica, 'PingFang SC',
+                  'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif;
+  --font-ui:      'Inter', 'Helvetica Neue', 'PingFang SC', Arial, sans-serif;
+  --font-display: 'Outfit', 'Poppins', system-ui, sans-serif;
+  --font-cn:      'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  --font-mono:    'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
+
+  /* Type scale – Figma usage histogram:
+     11/12/13/14/15/16/18/20/21/24/27/30/33/36/45px are the heavy hitters. */
+  --fs-11: 11px;
+  --fs-12: 12px;     /* meta / chip */
+  --fs-13: 13px;
+  --fs-14: 14px;     /* UI body */
+  --fs-15: 15px;     /* UI body large */
+  --fs-16: 16px;     /* section body */
+  --fs-18: 18px;     /* small heading */
+  --fs-21: 21px;     /* H3 */
+  --fs-24: 24px;
+  --fs-27: 27px;
+  --fs-30: 30px;
+  --fs-33: 33px;
+  --fs-36: 36px;     /* H1 in product */
+  --fs-45: 45px;     /* marketing hero small */
+  --fs-66: 66px;     /* marketing hero XL (CN campaigns) */
+
+  --lh-tight: 1.2;
+  --lh-snug:  1.4;
+  --lh-normal: 1.5;
+
+  --fw-regular: 400;
+  --fw-medium:  500;
+  --fw-semibold: 600;
+  --fw-bold:    700;
+}
+
+/* ───── Semantic typography (dark-first) ─────────────────────── */
+html, body {
+  background: var(--bg-app);
+  color: var(--fg-1);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: var(--lh-normal);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.h1, h1 {
+  font-family: var(--font-display);
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-45);
+  line-height: var(--lh-tight);
+  letter-spacing: -0.01em;
+  color: var(--fg-1);
+}
+.h2, h2 {
+  font-family: var(--font-display);
+  font-weight: var(--fw-semibold);
+  font-size: var(--fs-36);
+  line-height: var(--lh-tight);
+  color: var(--fg-1);
+}
+.h3, h3 {
+  font-family: var(--font-sans);
+  font-weight: var(--fw-semibold);
+  font-size: var(--fs-21);
+  line-height: var(--lh-snug);
+  color: var(--fg-1);
+}
+.h4, h4 {
+  font-family: var(--font-ui);
+  font-weight: var(--fw-semibold);
+  font-size: var(--fs-18);
+  line-height: var(--lh-snug);
+  color: var(--fg-1);
+}
+.eyebrow {
+  font-family: var(--font-ui);
+  font-size: var(--fs-12);
+  font-weight: var(--fw-medium);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--fg-3);
+}
+p, .body {
+  font-family: var(--font-ui);
+  font-size: var(--fs-14);
+  line-height: var(--lh-normal);
+  color: var(--fg-2);
+}
+.body-lg {
+  font-size: var(--fs-16);
+  line-height: 1.55;
+  color: var(--fg-2);
+}
+.meta, small {
+  font-family: var(--font-ui);
+  font-size: var(--fs-12);
+  color: var(--fg-3);
+}
+.label {
+  font-family: var(--font-ui);
+  font-size: var(--fs-14);
+  font-weight: var(--fw-medium);
+  color: var(--fg-1);
+}
+code, .code {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  background: var(--ink-12);
+  color: var(--lime-6);
+  padding: 2px 6px;
+  border-radius: var(--r-xs);
+}
+
+/* Gradient text utility – used on hero titles, "upgrade" CTAs */
+.text-grad {
+  background: var(--prome-grad-alt);
+  -webkit-background-clip: text;
+          background-clip: text;
+  color: transparent;
+}
+
+/* Button base (dark, pill) */
+.btn {
+  font-family: var(--font-ui);
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-12);
+  border-radius: var(--r-md);
+  padding: 10px 16px;
+  display: inline-flex; align-items: center; gap: 6px;
+  border: 0; cursor: pointer;
+  transition: transform .12s ease, filter .12s ease, background-color .12s ease;
+}
+.btn-primary   { background: var(--prome-grad-alt); color: #fff; }
+.btn-secondary { background: rgba(60,63,77,.8); color: #fff; }
+.btn-ghost     { background: transparent; color: var(--fg-1); border: 1px solid var(--ink-10); }
+.btn-lime      { background: var(--lime-6); color: #0B0C10; }
+.btn:hover     { filter: brightness(1.08); }
+.btn:active    { transform: scale(.98); filter: brightness(.95); }

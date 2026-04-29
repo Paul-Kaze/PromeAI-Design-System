@@ -1,0 +1,23 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body{margin:0;padding:20px;background:var(--bg-0);color:var(--fg-1);}
+  .grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:12px;}
+  .accent{border-radius:var(--radius-md);border:1px solid var(--border-2);overflow:hidden;min-height:108px;display:flex;flex-direction:column;}
+  .swatch{flex:1;display:flex;align-items:flex-end;padding:12px;}
+  .m{padding:8px 10px;background:var(--bg-1);border-top:1px solid var(--border-2);font-size:11px;}
+  .m b{display:block;font-weight:600;}
+  .m span{color:var(--fg-4);font-family:var(--font-mono);font-size:10px;}
+  .t{color:#fff;font-weight:700;font-size:14px;}
+</style></head>
+<body>
+<div class="grid">
+  <div class="accent">
+    <div class="swatch" style="background:var(--gradient-brand)"><span class="t">Brand gradient</span></div>
+    <div class="m"><b>Brand · primary CTA</b><span>#4E9CFF → #A242FF</span></div>
+  </div>
+  <div class="accent"><div class="swatch" style="background:#4E9CFF"></div><div class="m"><b>brand-blue</b><span>#4E9CFF</span></div></div>
+  <div class="accent"><div class="swatch" style="background:#A242FF"></div><div class="m"><b>brand-violet</b><span>#A242FF</span></div></div>
+  <div class="accent"><div class="swatch" style="background:var(--gradient-brand-v2)"><span class="t">Brand v2</span></div><div class="m"><b>Brand · v2 bright</b><span>#348DFF → #9B35FF</span></div></div>
+</div>
+</body></html>

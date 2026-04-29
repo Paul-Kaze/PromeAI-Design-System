@@ -1,0 +1,35 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body{margin:0;padding:26px;background:var(--bg-0);color:var(--fg-1);}
+  .row{display:flex;flex-wrap:wrap;gap:12px;align-items:center;}
+  .btn{font-family:var(--font-sans);font-size:14px;font-weight:500;padding:8px 16px;border-radius:9px;border:1px solid transparent;cursor:pointer;display:inline-flex;align-items:center;gap:8px;line-height:1.2;}
+  .primary{background:var(--gradient-brand);color:#fff;border:0;}
+  .primary:hover{filter:brightness(1.06);}
+  .secondary{background:var(--bg-3);color:var(--fg-2);border-color:var(--border-4);}
+  .secondary:hover{background:var(--bg-hover);color:#fff;}
+  .ghost{background:transparent;color:var(--fg-2);}
+  .ghost:hover{background:var(--bg-hover-80);color:#fff;}
+  .white{background:#fff;color:#000;}
+  .disabled{opacity:.4;cursor:not-allowed;}
+  .small{font-size:12px;padding:6px 10px;border-radius:9px;}
+  .spark{font-weight:600;}
+  .lbl{width:100%;font-family:var(--font-mono);font-size:10px;color:var(--fg-4);text-transform:uppercase;letter-spacing:.04em;margin-top:6px;}
+</style></head>
+<body>
+  <div class="row">
+    <button class="btn primary"><span class="spark">✨</span> Magic Generate</button>
+    <button class="btn primary">Create Template</button>
+    <button class="btn secondary">Cancel</button>
+    <button class="btn white">Got it!</button>
+    <button class="btn ghost">Rename</button>
+    <button class="btn primary disabled">Submit</button>
+  </div>
+  <div class="lbl">Primary · gradient · Secondary · raised · White · Ghost · Disabled</div>
+  <div class="row" style="margin-top:14px;">
+    <button class="btn primary small">Recharge</button>
+    <button class="btn secondary small">Retry</button>
+    <button class="btn ghost small">Share</button>
+  </div>
+  <div class="lbl">Small (12/500, 6×10 padding)</div>
+</body></html>

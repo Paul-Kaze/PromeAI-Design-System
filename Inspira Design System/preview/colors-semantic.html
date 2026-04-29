@@ -1,0 +1,20 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body{margin:0;padding:20px;background:var(--bg-0);}
+  .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
+  .sw{border-radius:var(--radius-md);border:1px solid var(--border-2);overflow:hidden;}
+  .chip{height:72px;display:flex;align-items:center;justify-content:center;}
+  .chip svg{width:28px;height:28px;}
+  .m{padding:8px 10px;background:var(--bg-1);border-top:1px solid var(--border-2);font-size:11px;color:var(--fg-1);}
+  .m b{display:block;font-weight:600;}
+  .m span{color:var(--fg-4);font-family:var(--font-mono);font-size:10px;}
+</style></head>
+<body>
+<div class="grid">
+  <div class="sw"><div class="chip" style="background:var(--gradient-success)"><svg viewBox="0 0 24 24" fill="none" stroke="#0A1A05" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><div class="m"><b>success</b><span>#77ED21 → #C3FF97</span></div></div>
+  <div class="sw"><div class="chip" style="background:var(--gradient-error)"><svg viewBox="0 0 24 24" fill="none" stroke="#1A0500" stroke-width="3" stroke-linecap="round"><line x1="12" y1="7" x2="12" y2="13"/><circle cx="12" cy="17" r="1.2" fill="#1A0500"/></svg></div><div class="m"><b>error</b><span>#FF4343 → #FD782F</span></div></div>
+  <div class="sw"><div class="chip" style="background:#FFAD2B"></div><div class="m"><b>coin · credits</b><span>#FFAD2B</span></div></div>
+  <div class="sw"><div class="chip" style="background:#D4F462"></div><div class="m"><b>upgrade</b><span>#D4F462</span></div></div>
+</div>
+</body></html>

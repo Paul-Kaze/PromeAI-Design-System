@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Inspira · Canvas App UI Kit</title>
+  <meta name="viewport" content="width=1280, initial-scale=1" />
+  <link rel="icon" href="../../assets/inspira-favicon.png" />
+  <link rel="stylesheet" href="../../colors_and_type.css" />
+  <style>
+    html, body, #app { height: 100%; margin: 0; }
+    body {
+      background: var(--bg-0); color: #fff;
+      font-family: var(--font-sans); font-size: 14px;
+      overflow: hidden;
+    }
+    @keyframes inspira-toast-in {
+      from { transform: translateY(8px); opacity: 0; }
+      to   { transform: translateY(0); opacity: 1; }
+    }
+    /* thin chat-scroll */
+    .scroll::-webkit-scrollbar { width: 4px; height: 4px; }
+    .scroll::-webkit-scrollbar-thumb { background: var(--scrollbar); border-radius: 2px; }
+  </style>
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div id="app"></div>
+
+  <script type="text/babel" src="./Icon.jsx"></script>
+  <script type="text/babel" src="./Button.jsx"></script>
+  <script type="text/babel" src="./Sidebar.jsx"></script>
+  <script type="text/babel" src="./Header.jsx"></script>
+  <script type="text/babel" src="./HomeGrid.jsx"></script>
+  <script type="text/babel" src="./CanvasStage.jsx"></script>
+  <script type="text/babel" src="./Composer.jsx"></script>
+  <script type="text/babel" src="./ChatMessage.jsx"></script>
+  <script type="text/babel" src="./Toast.jsx"></script>
+
+  <script type="text/babel">
+    const { useState, useRef, useEffect } = React;
+
+    const SAMPLE_PROJECTS = [
+      { id: "p1", title: "Arcade poster",   meta: "Edited 2 minutes ago",  thumb: "radial-gradient(120% 80% at 10% 0%,#362048 0,#0E1A2E 60%,#000 100%)" },
+      { id: "p2", title: "Product mock v3", meta: "Edited 1h · 12 images", thumb: "linear-gradient(130deg,#0b1a35 0%,#1b0e30 100%)" },
+      { id: "p3", title: "Character sheet", meta: "Edited yesterday",       thumb: "linear-gradient(140deg,#240b3a 0%,#06122a 100%)" },
+      { id: "p4", title: "Brand moodboard", meta: "Edited 2d",              thumb: "linear-gradient(160deg,#052840 0%,#1B0E30 100%)" },
+      { id: "p5", title: "Untitled",        meta: "No edits yet" },
+    ];
+
+    const SAMPLE_HISTORY = [
+      { id: "c1", title: "Arcade poster" },
+      { id: "c2", title: "Product mock v3" },
+      { id: "c3", title: "Character sheet v4" },
+      { id: "c4", title: "Explore retro UI" },
+      { id: "c5", title: "Brand moodboard" },
+      { id: "c6", title: "Landing page illustrations" },
+    ];
+
+    const SAMPLE_MESSAGES = [
+      { id: "m1", role: "user", text: "Generate a retro-futurist arcade poster, neon palette, isometric." },
+      { id: "m2", role: "assistant", text: "Here are four variations — click one to open it on the canvas.", images: [
+        "radial-gradient(120% 80% at 10% 0%,#F72585 0,#7209B7 40%,#3A0CA3 100%)",
+        "linear-gradient(140deg,#4361EE 0%,#4CC9F0 100%)",
+        "linear-gradient(130deg,#F72585 0%,#7209B7 100%)",
+        "linear-gradient(160deg,#06FFA5 0%,#4361EE 100%)",
+      ] },
+      { id: "m3", role: "user", text: "Keep the top-right palette — retry with an arcade cabinet in the foreground." },
+      { id: "m4", role: "assistant", status: "thinking", text: "Plan: isolate palette → mask cabinet foreground → composite ×3" },
+    ];
+
+    function App() {
+      const [screen, setScreen] = useState("home"); // home | workspace
+      const [activeCanvasId, setActiveCanvasId] = useState(null);
+      const [canvasTitle, setCanvasTitle] = useState("Untitled");
+      const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
+      const [activeChatId, setActiveChatId] = useState("c1");
+      const [messages, setMessages] = useState(SAMPLE_MESSAGES);
+      const [toasts, setToasts] = useState([]);
+      const msgScroll = useRef(null);
+      const toastId = useRef(0);
+
+      const pushToast = (t) => {
+        const id = ++toastId.current;
+        const next = { id, ...t };
+        setToasts((list) => [...list, next]);
+        setTimeout(() => setToasts((list) => list.filter((x) => x.id !== id)), t.cta ? 8000 : 3200);
+      };
+
+      const openProject = (id) => {
+        const p = SAMPLE_PROJECTS.find((x) => x.id === id);
+        setActiveCanvasId(id);
+        setCanvasTitle(p?.title || "Untitled");
+        setScreen("workspace");
+      };
+
+      const newCanvas = () => {
+        setActiveCanvasId("new");
+        setCanvasTitle("Untitled");
+        setScreen("workspace");
+        pushToast({ kind: "success", title: "New canvas created" });
+      };
+
+      const handleSend = ({ text, qty }) => {
+        const userId = "u" + Date.now();
+        setMessages((m) => [...m, { id: userId, role: "user", text }]);
+        // fake streaming assistant response
+        setTimeout(() => {
+          const thinkId = "t" + Date.now();
+          setMessages((m) => [...m, { id: thinkId, role: "assistant", status: "thinking", text: "Planning generation…" }]);
+          setTimeout(() => {
+            setMessages((m) => m.map((x) => x.id === thinkId ? {
+              id: thinkId, role: "assistant",
+              text: `Done — ${qty} variation${qty > 1 ? "s" : ""} on the canvas.`,
+              images: Array.from({ length: qty }).map((_, i) => {
+                const palettes = [
+                  "radial-gradient(120% 80% at 10% 0%,#F72585 0,#7209B7 40%,#3A0CA3 100%)",
+                  "linear-gradient(140deg,#06FFA5 0%,#4361EE 100%)",
+                  "linear-gradient(130deg,#4CC9F0 0%,#7209B7 100%)",
+                  "linear-gradient(160deg,#FFBE0B 0%,#FB5607 100%)",
+                ];
+                return palettes[i % palettes.length];
+              }),
+            } : x));
+            pushToast({ kind: "success", title: "Generation complete", description: `${qty} image${qty > 1 ? "s" : ""} added to canvas.` });
+          }, 1500);
+        }, 350);
+      };
+
+      useEffect(() => {
+        if (msgScroll.current) msgScroll.current.scrollTop = msgScroll.current.scrollHeight;
+      }, [messages]);
+
+      // Demo: trigger error toast once after load
+      useEffect(() => {
+        const tm = setTimeout(() => {
+          if (screen === "workspace") pushToast({
+            kind: "error",
+            title: "Insufficient Balance",
+            description: "Your credits are depleted. Please recharge to continue.",
+            cta: "Recharge",
+            raised: true,
+          });
+        }, 12000);
+        return () => clearTimeout(tm);
+      }, [screen]);
+
+      return (
+        <div style={{ display: "flex", flexDirection: "column", height: "100%" }}>
+          <Header
+            canvasTitle={screen === "workspace" ? canvasTitle : null}
+            onTitleChange={setCanvasTitle}
+            onBack={screen === "workspace" ? () => setScreen("home") : null}
+            coins={1240}
+          />
+          <div style={{ display: "flex", flex: 1, minHeight: 0 }}>
+            {screen === "workspace" && (
+              <Sidebar
+                items={SAMPLE_HISTORY}
+                activeId={activeChatId}
+                onPick={setActiveChatId}
+                onNewChat={() => setMessages([])}
+                collapsed={sidebarCollapsed}
+                onToggle={() => setSidebarCollapsed((v) => !v)}
+              />
+            )}
+
+            {screen === "home" ? (
+              <HomeGrid projects={SAMPLE_PROJECTS} onOpen={openProject} onNew={newCanvas} />
+            ) : (
+              <div style={{ display: "flex", flex: 1, minHeight: 0 }}>
+                <div style={{ flex: 1, display: "flex", flexDirection: "column", minWidth: 0 }}>
+                  <CanvasStage>
+                    <CanvasSampleContent />
+                    <Popbar
+                      visible={true}
+                      onAdd={() => pushToast({ kind: "success", title: "Added to chat" })}
+                      onMagic={() => pushToast({ kind: "success", title: "Magic generation started", description: "We'll place results on the canvas." })}
+                    />
+                  </CanvasStage>
+                </div>
+
+                {/* Right chat panel */}
+                <div style={{
+                  width: 420, flex: "none",
+                  borderLeft: "1px solid var(--border-2)",
+                  background: "var(--bg-0)",
+                  display: "flex", flexDirection: "column",
+                  minHeight: 0,
+                }}>
+                  <div style={{
+                    display: "flex", alignItems: "center", justifyContent: "space-between",
+                    padding: "12px 14px", borderBottom: "1px solid var(--border-2)",
+                  }}>
+                    <div style={{ fontSize: 13, fontWeight: 600 }}>Chat</div>
+                    <div style={{ display: "inline-flex", gap: 4 }}>
+                      <IconButton title="Share"><Icon name="share" size={14} /></IconButton>
+                      <IconButton title="Settings"><Icon name="settings" size={14} /></IconButton>
+                    </div>
+                  </div>
+
+                  <div className="scroll" ref={msgScroll} style={{ flex: 1, overflow: "auto", padding: "4px 0" }}>
+                    {messages.length === 0 ? (
+                      <EmptyChatState onQuick={(p) => handleSend({ text: p, qty: 1, model: "Auto", modality: "Image" })} />
+                    ) : (
+                      messages.map((m) => <ChatMessage key={m.id} {...m} />)
+                    )}
+                  </div>
+
+                  <Composer onSend={handleSend} />
+                </div>
+              </div>
+            )}
+          </div>
+
+          <ToastStack toasts={toasts} onDismiss={(id) => setToasts((l) => l.filter((x) => x.id !== id))} />
+        </div>
+      );
+    }
+
+    function EmptyChatState({ onQuick }) {
+      const prompts = [
+        "A retro arcade poster in neon",
+        "Isometric city at golden hour",
+        "Character sheet · 4 poses",
+        "Product hero · floating bottle",
+      ];
+      return (
+        <div style={{ padding: "32px 24px", display: "flex", flexDirection: "column", gap: 16 }}>
+          <img src="../../assets/inspira-logo.png" alt="" style={{ height: 28, width: "auto", opacity: 0.8 }} />
+          <div style={{ fontSize: 20, fontWeight: 600, lineHeight: 1.2 }}>
+            What would you like to create?
+          </div>
+          <div style={{ color: "var(--fg-3)", fontSize: 13, lineHeight: 1.55 }}>
+            Describe an image, video, or sketch — we'll place results on the canvas.
+          </div>
+          <div style={{ display: "flex", flexDirection: "column", gap: 6, marginTop: 8 }}>
+            {prompts.map((p) => (
+              <button
+                key={p}
+                onClick={() => onQuick(p)}
+                style={{
+                  textAlign: "left", background: "var(--bg-1)", border: "1px solid var(--border-2)",
+                  borderRadius: 9, padding: "10px 12px", color: "var(--fg-2)",
+                  fontFamily: "var(--font-sans)", fontSize: 13, cursor: "pointer",
+                }}
+                onMouseEnter={(e) => (e.currentTarget.style.background = "var(--bg-3)", e.currentTarget.style.color = "#fff")}
+                onMouseLeave={(e) => (e.currentTarget.style.background = "var(--bg-1)", e.currentTarget.style.color = "var(--fg-2)")}
+              >
+                {p}
+              </button>
+            ))}
+          </div>
+        </div>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById("app")).render(<App />);
+  </script>
+</body>
+</html>

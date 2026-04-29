@@ -1,0 +1,21 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body{margin:0;padding:28px;background:var(--bg-0);color:var(--fg-1);display:flex;gap:22px;align-items:center;justify-content:space-around;}
+  .cell{display:flex;flex-direction:column;align-items:center;gap:12px;}
+  .sq{width:96px;height:96px;background:var(--bg-3);border:1px solid var(--border-2);border-radius:var(--radius-lg);}
+  .g{background:var(--glass-bg);border:1px solid var(--glass-stroke);backdrop-filter:blur(10px);}
+  .pop{box-shadow:0 12px 40px rgba(0,0,0,0.55);}
+  .s1{box-shadow:0 0 5px 0 rgba(0,0,0,0.15);}
+  b{font-size:12px;font-weight:600;}
+  span{color:var(--fg-4);font-family:var(--font-mono);font-size:10px;}
+  .lab{text-align:center;}
+  /* checkered so transparency reads */
+  body{background:repeating-conic-gradient(#0a0a0c 0% 25%,#131318 0% 50%) 50% / 16px 16px, var(--bg-0);}
+</style></head>
+<body>
+  <div class="cell"><div class="sq"></div><div class="lab"><b>flat</b><br><span>default · no shadow</span></div></div>
+  <div class="cell"><div class="sq s1"></div><div class="lab"><b>shadow-1</b><br><span>0 0 5 · float btn</span></div></div>
+  <div class="cell"><div class="sq pop"></div><div class="lab"><b>shadow-pop</b><br><span>0 12 40 · dialog</span></div></div>
+  <div class="cell"><div class="sq g"></div><div class="lab"><b>glass</b><br><span>blur 10 · nav arrow</span></div></div>
+</body></html>

@@ -1,0 +1,266 @@
+/* ============================================================
+   Inspira Design System · colors_and_type.css
+   Derived from Inspira_fronted (/src/assets/style/index.css) +
+   the Figma "Prome AI" chat-history & toast frames.
+   Dark-first: Inspira runs as a dark creative canvas.
+   ============================================================ */
+
+/* ---------- Fonts -------------------------------------------- */
+@font-face {
+  font-family: "Poppins";
+  src: url("./fonts/Poppins-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url("./fonts/Poppins-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url("./fonts/Poppins-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* ==========================================================
+     COLOR — SURFACES (dark-first)
+     Inspira's canvas is near-black with layered charcoal panels.
+     ========================================================== */
+  --bg-0:           #000000;   /* outermost / header blacks         */
+  --bg-1:           #1E202A;   /* primary panel / composer          */
+  --bg-2:           #1C1E28;   /* toast surface · slightly cooler   */
+  --bg-3:           #2C2D37;   /* raised panel / secondary surface  */
+  --bg-4:           #353643;   /* dropdown / menu background        */
+  --bg-hover:       #3E3F4E;   /* hover-raise for interactive bg    */
+  --bg-hover-80:    #3E3F4E80; /* translucent hover (drag-over, etc) */
+  --bg-generate:    linear-gradient(90deg,#1E202A 50%,#2E3140 100%);
+
+  /* ==========================================================
+     COLOR — BORDERS / STROKES
+     Hairlines on dark — always <= 1px, low-contrast.
+     ========================================================== */
+  --border-1:       #242525;   /* hairline on pure-black header     */
+  --border-2:       #292C37;   /* primary border, on bg-1           */
+  --border-3:       #2C2D37;   /* toast border                      */
+  --border-4:       #424356;   /* menu / dropdown border            */
+  --border-5:       #48495C;   /* standard input border             */
+  --border-soft:    rgba(215,216,224,0.4);  /* text-field alt       */
+
+  /* ==========================================================
+     COLOR — FOREGROUND / TEXT
+     ========================================================== */
+  --fg-1:           #FFFFFF;   /* primary text                      */
+  --fg-2:           #C9CCD5;   /* secondary / toast description     */
+  --fg-3:           #B6B9CA;   /* tip text                          */
+  --fg-4:           #A8ADC1;   /* label text · form captions        */
+  --fg-5:           #C5C7D5;   /* empty-state text                  */
+  --fg-muted:       #6C6F82;   /* disabled / placeholder            */
+  --fg-on-accent:   #000000;   /* text sitting on white chips       */
+
+  /* ==========================================================
+     COLOR — BRAND / ACCENT
+     Inspira's signature is a blue→violet gradient used SPARINGLY
+     on primary CTAs, brand logotype, and generate affordances.
+     ========================================================== */
+  --brand-blue:         #4E9CFF;
+  --brand-violet:       #A242FF;
+  --brand-blue-bright:  #348DFF;
+  --brand-violet-bright:#9B35FF;
+  --gradient-brand:     linear-gradient(90deg,#4E9CFF 0%,#A242FF 100%);
+  --gradient-brand-v2:  linear-gradient(90deg,#348DFF 1.67%,#9B35FF 100%);
+
+  /* utility / status colors -- from Figma toast set */
+  --coin:           #FFAD2B;   /* credit / coin amber               */
+  --upgrade:        #D4F462;   /* upgrade lime                      */
+  --success-a:      #77ED21;
+  --success-b:      #C3FF97;
+  --gradient-success: linear-gradient(#77ED21 0%,#C3FF97 100%);
+  --error-a:        #FF4343;
+  --error-b:        #FD782F;
+  --gradient-error:   linear-gradient(#FF4343 0%,#FD782F 100%);
+  --warning:        #FF8D1A;
+
+  /* drop / protection overlays */
+  --drop-gradient:  linear-gradient(90deg,rgba(51,52,64,0) 0%,#333440 60%);
+  --drop-rect-bg:   #4C4D5D;
+  --dialog-overlay: rgba(33,33,33,0.72);
+  --tip-bg:         rgba(30,32,42,0.70);    /* --custom-primary-tip-bg */
+  --scrollbar:      #373A43;
+
+  /* semantic chip */
+  --chip-label-bg:  #4E5268;   /* small "label" pill backing        */
+
+  /* ==========================================================
+     TYPE — FAMILIES
+     Poppins is Inspira's one type voice. Chinese fallbacks stay
+     intact for zh-CN builds. Mono is reserved; no mono in product UI.
+     ========================================================== */
+  --font-sans:
+    "Poppins", "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB",
+    "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+  --font-mono:
+    ui-monospace, "JetBrains Mono", "SF Mono", Menlo, Consolas, monospace;
+
+  /* ==========================================================
+     TYPE — SCALE
+     Inspira is a tool UI — compact. 12/14/16 carry the product.
+     Display sizes appear only on marketing-style states (upsells).
+     ========================================================== */
+  --text-xs:    11px;
+  --text-sm:    12px;
+  --text-base: 14px;
+  --text-md:   16px;
+  --text-lg:   18px;
+  --text-xl:   20px;
+  --text-2xl:  24px;
+  --text-3xl:  32px;
+  --text-4xl:  44px;
+
+  --leading-tight: 1.2;
+  --leading-snug:  1.4;      /* dominant in product — matches Figma */
+  --leading-body:  1.55;
+
+  --tracking-tight:  -0.01em;
+  --tracking-normal: 0;
+  --tracking-wide:   0.02em;
+
+  --weight-regular:  400;
+  --weight-medium:   500;
+  --weight-semibold: 600;
+  --weight-bold:     700;
+
+  /* ==========================================================
+     SHAPE — RADII (Inspira's signature "rounded but not soft")
+     ========================================================== */
+  --radius-sm:   6px;   /* tiny chips, thumbnails                   */
+  --radius-md:   9px;   /* buttons (--custom-primary-button-radius) */
+  --radius-lg:  12px;   /* panels, cards                            */
+  --radius-xl:  15px;   /* toasts, prominent sheets                 */
+  --radius-2xl: 20px;   /* hero surfaces                            */
+  --radius-full: 999px;
+
+  /* ==========================================================
+     SPACING — 4px baseline
+     ========================================================== */
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3: 10px;   /* toast inner gap (from Figma)                */
+  --space-4: 12px;
+  --space-5: 15px;   /* toast container padding                     */
+  --space-6: 20px;
+  --space-7: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+
+  /* ==========================================================
+     ELEVATION
+     Almost no elevation — Inspira is flat; the one shadow used on
+     floating affordances (nav arrows) is tiny + black.
+     ========================================================== */
+  --shadow-0: none;
+  --shadow-1: 0 0 5px 0 rgba(0,0,0,0.15);
+  --shadow-2: 0 8px 24px rgba(0,0,0,0.35);
+  --shadow-pop: 0 12px 40px rgba(0,0,0,0.55);
+
+  /* blurred translucency (chat-history right arrow button) */
+  --glass-bg:    rgba(44,57,76,0.60);
+  --glass-stroke: rgba(51,65,85,0.50);
+  --glass-blur:  blur(10px);
+
+  /* ==========================================================
+     MOTION
+     Brief, mechanical; no bounces. Opacity + tiny translate.
+     ========================================================== */
+  --ease-out:      cubic-bezier(0.22, 0.61, 0.36, 1);
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --dur-fast:  120ms;
+  --dur-base:  180ms;
+  --dur-slow:  280ms;
+}
+
+/* ============================================================
+   BASE SEMANTIC TYPOGRAPHY
+   ============================================================ */
+html, body {
+  background: var(--bg-0);
+  color: var(--fg-1);
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  line-height: var(--leading-snug);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, .h1 {
+  font-size: var(--text-3xl);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+  margin: 0 0 var(--space-4);
+}
+h2, .h2 {
+  font-size: var(--text-2xl);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-tight);
+  margin: 0 0 var(--space-3);
+}
+h3, .h3 {
+  font-size: var(--text-xl);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-snug);
+  margin: 0 0 var(--space-2);
+}
+h4, .h4 {
+  font-size: var(--text-md);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-snug);
+  margin: 0 0 var(--space-2);
+}
+p, .body {
+  font-size: var(--text-base);
+  line-height: var(--leading-body);
+  color: var(--fg-2);
+  margin: 0 0 var(--space-3);
+}
+small, .caption {
+  font-size: var(--text-sm);
+  color: var(--fg-4);
+  line-height: var(--leading-snug);
+}
+.tip {
+  font-size: var(--text-sm);
+  color: var(--fg-3);
+}
+.label {
+  font-size: var(--text-sm);
+  color: var(--fg-4);
+  letter-spacing: var(--tracking-wide);
+}
+
+/* brand display — ONLY for hero moments (upsell, login) */
+.display {
+  font-size: var(--text-4xl);
+  font-weight: var(--weight-bold);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+}
+
+/* brand gradient applied to text */
+.brand-gradient-text {
+  background: var(--gradient-brand);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* thin scrollbar (matches Inspira's App.css) */
+::-webkit-scrollbar { background: transparent; height: 4px; width: 4px; }
+::-webkit-scrollbar-thumb { background: var(--scrollbar); border-radius: 2px; }
