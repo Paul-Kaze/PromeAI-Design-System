@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { background:#0f172a; font-family:'Poppins',sans-serif; padding:20px; }
+.row { display:flex; flex-direction:column; gap:6px; }
+.item { display:flex; align-items:center; gap:14px; }
+.dot { width:32px; height:32px; border-radius:50%; flex-shrink:0; border:1px solid rgba(255,255,255,0.08); }
+.meta { display:flex; flex-direction:column; }
+.name { font-size:12px; font-weight:600; }
+.hex { font-size:11px; opacity:0.55; }
+.section-label { font-size:10px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:#6b7280; margin-top:12px; margin-bottom:4px; }
+</style>
+</head><body>
+<div class="row">
+  <div class="section-label">Text Roles</div>
+  <div class="item">
+    <div class="dot" style="background:rgb(255,255,255)"></div>
+    <div class="meta">
+      <span class="name" style="color:rgb(255,255,255)">fg1 — Primary (Headings)</span>
+      <span class="hex">#FFFFFF</span>
+    </div>
+  </div>
+  <div class="item">
+    <div class="dot" style="background:rgb(157,162,174)"></div>
+    <div class="meta">
+      <span class="name" style="color:rgb(157,162,174)">fg2 — Secondary (Body)</span>
+      <span class="hex">rgb(157,162,174)</span>
+    </div>
+  </div>
+  <div class="item">
+    <div class="dot" style="background:rgb(182,185,202)"></div>
+    <div class="meta">
+      <span class="name" style="color:rgb(182,185,202)">fg3 — Tertiary (Card body)</span>
+      <span class="hex">rgb(182,185,202)</span>
+    </div>
+  </div>
+  <div class="item">
+    <div class="dot" style="background:rgb(156,163,175)"></div>
+    <div class="meta">
+      <span class="name" style="color:rgb(156,163,175)">fg4 — Subtle (Small labels)</span>
+      <span class="hex">rgb(156,163,175)</span>
+    </div>
+  </div>
+  <div class="item">
+    <div class="dot" style="background:rgb(215,216,224)"></div>
+    <div class="meta">
+      <span class="name" style="color:rgb(215,216,224)">fg-ui — UI Labels</span>
+      <span class="hex">rgb(215,216,224)</span>
+    </div>
+  </div>
+  <div class="section-label">Accent Text</div>
+  <div class="item">
+    <div class="dot" style="background:rgb(96,165,250)"></div>
+    <div class="meta">
+      <span class="name" style="color:rgb(96,165,250)">text-blue</span>
+      <span class="hex">rgb(96,165,250)</span>
+    </div>
+  </div>
+  <div class="item">
+    <div class="dot" style="background:rgb(192,132,252)"></div>
+    <div class="meta">
+      <span class="name" style="color:rgb(192,132,252)">text-purple</span>
+      <span class="hex">rgb(192,132,252)</span>
+    </div>
+  </div>
+  <div class="item">
+    <div class="dot" style="background:rgb(244,114,182)"></div>
+    <div class="meta">
+      <span class="name" style="color:rgb(244,114,182)">text-pink</span>
+      <span class="hex">rgb(244,114,182)</span>
+    </div>
+  </div>
+</div>
+</body></html>

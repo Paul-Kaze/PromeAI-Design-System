@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { background:#0f172a; font-family:'Poppins',sans-serif; padding:20px; display:flex; flex-direction:column; gap:16px; }
+.label { font-size:10px; color:#6b7280; font-weight:700; text-transform:uppercase; letter-spacing:.07em; margin-bottom:6px; }
+.header {
+  width:100%; height:60px; background:rgb(0,0,0);
+  border:1px solid rgb(36,37,37);
+  overflow:hidden; position:relative;
+}
+.header-img {
+  width:100%; height:100%;
+  background:url('../assets/header-nav.png') left center / auto 100% no-repeat;
+}
+.brand-name {
+  position:absolute; left:20px; top:50%; transform:translateY(-50%);
+  font-size:20px; font-weight:700; color:#fff; letter-spacing:-0.02em;
+}
+.note { font-size:11px; color:#6b7280; line-height:1.5; }
+
+.cta-banner {
+  border-radius:12px; overflow:hidden;
+  background:linear-gradient(rgb(59,130,246) 0%, rgb(147,51,234) 100%);
+  padding:24px 32px; display:flex; flex-direction:column; gap:8px; align-items:center;
+}
+.cta-banner h2 { font-size:24px; font-weight:700; color:#fff; text-align:center; }
+.cta-banner p { font-size:14px; color:rgba(255,255,255,0.9); text-align:center; }
+.cta-btn {
+  height:44px; border-radius:10px; background:#fff; border:none;
+  font-family:'Poppins',sans-serif; font-size:16px; font-weight:700;
+  color:rgb(37,99,235); padding:0 32px; cursor:pointer; margin-top:4px;
+}
+.trust { font-size:12px; color:rgba(255,255,255,0.6); }
+</style>
+</head><body>
+
+<div>
+  <div class="label">Global Header / Nav (actual asset)</div>
+  <div class="header">
+    <div class="header-img"></div>
+  </div>
+  <div class="note" style="margin-top:6px">Source: assets/header-nav.png — full-width nav screenshot used as background image in the Figma design. PromeAI logo visible left; tool links and Upgrade CTA on right.</div>
+</div>
+
+<div>
+  <div class="label">CTA Banner — Full-bleed Gradient Section</div>
+  <div class="cta-banner">
+    <h2>Generate My Free Character Sheet Now</h2>
+    <p>Join thousands of creators who have transformed their photos into amazing character sheets. Start your first generation for free today.</p>
+    <button class="cta-btn">Try our character sheet for free</button>
+    <div class="trust">Generate your first 10 models free • No credit card needed • Cancel anytime</div>
+  </div>
+</div>
+
+</body></html>

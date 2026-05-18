@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { background:#0f172a; font-family:'Poppins',sans-serif; padding:20px; display:flex; flex-direction:column; gap:8px; }
+.faq-item {
+  background:rgb(30,41,59); border-radius:12px;
+  overflow:hidden;
+}
+.faq-q {
+  display:flex; justify-content:space-between; align-items:center;
+  padding:24px; cursor:pointer;
+}
+.faq-q span { font-size:20px; font-weight:500; color:#fff; line-height:28px; }
+.chevron { flex-shrink:0; transition:transform .2s; }
+.faq-a { padding:0 24px 20px; font-size:14px; color:rgb(157,162,174); line-height:1.5; }
+.faq-item.open .chevron { transform:rotate(180deg); }
+</style>
+</head><body>
+
+<div class="faq-item open">
+  <div class="faq-q" onclick="this.parentElement.classList.toggle('open'); this.parentElement.querySelector('.faq-a').style.display=this.parentElement.classList.contains('open')?'block':'none'">
+    <span>How does the photo-to-character sheet conversion work?</span>
+    <svg class="chevron" width="14" height="8" viewBox="0 0 14 8" fill="white">
+      <path d="M6.281 7.719C6.49 7.906 6.729 8 7 8s.51-.094.719-.281l6-6C13.906 1.51 14 1.271 14 1s-.094-.51-.281-.719C13.51.094 13.271 0 13 0s-.51.094-.719.281L7 5.594 1.719.281C1.51.094 1.271 0 1 0S.49.094.281.281C.094.49 0 .729 0 1s.094.51.281.719l6 6z"/>
+    </svg>
+  </div>
+  <div class="faq-a">Our AI analyzes your uploaded photo, identifies facial features and body pose, then generates a stylized character illustration matched to your chosen template — all in under 30 seconds.</div>
+</div>
+
+<div class="faq-item">
+  <div class="faq-q" onclick="this.parentElement.classList.toggle('open'); this.parentElement.querySelector('.faq-a').style.display=this.parentElement.classList.contains('open')?'block':'none'">
+    <span>How accurate is the AI in converting my photo?</span>
+    <svg class="chevron" width="14" height="8" viewBox="0 0 14 8" fill="white">
+      <path d="M6.281 7.719C6.49 7.906 6.729 8 7 8s.51-.094.719-.281l6-6C13.906 1.51 14 1.271 14 1s-.094-.51-.281-.719C13.51.094 13.271 0 13 0s-.51.094-.719.281L7 5.594 1.719.281C1.51.094 1.271 0 1 0S.49.094.281.281C.094.49 0 .729 0 1s.094.51.281.719l6 6z"/>
+    </svg>
+  </div>
+  <div class="faq-a" style="display:none">The AI produces highly accurate results from clear portrait photos. It preserves key facial characteristics while adapting the style to match your chosen template.</div>
+</div>
+
+<div class="faq-item">
+  <div class="faq-q" onclick="this.parentElement.classList.toggle('open'); this.parentElement.querySelector('.faq-a').style.display=this.parentElement.classList.contains('open')?'block':'none'">
+    <span>How long does it take to generate a character sheet?</span>
+    <svg class="chevron" width="14" height="8" viewBox="0 0 14 8" fill="white">
+      <path d="M6.281 7.719C6.49 7.906 6.729 8 7 8s.51-.094.719-.281l6-6C13.906 1.51 14 1.271 14 1s-.094-.51-.281-.719C13.51.094 13.271 0 13 0s-.51.094-.719.281L7 5.594 1.719.281C1.51.094 1.271 0 1 0S.49.094.281.281C.094.49 0 .729 0 1s.094.51.281.719l6 6z"/>
+    </svg>
+  </div>
+  <div class="faq-a" style="display:none">Most character sheets are generated in under 30 seconds, depending on photo complexity and server load.</div>
+</div>
+
+</body></html>

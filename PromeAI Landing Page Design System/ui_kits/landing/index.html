@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PromeAI — Character Sheet Generator</title>
+  <style>
+@font-face { font-family:'Poppins'; src:url('../../fonts/Poppins-Regular.ttf') format('truetype'); font-weight:400; }
+@font-face { font-family:'Poppins'; src:url('../../fonts/Poppins-SemiBold.ttf') format('truetype'); font-weight:600; }
+@font-face { font-family:'Poppins'; src:url('../../fonts/Poppins-Bold.ttf') format('truetype'); font-weight:700; }
+</style>
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: rgb(1,4,11);
+      font-family: 'Poppins', sans-serif;
+      color: #fff;
+    }
+    #root { padding-top: 60px; }
+  </style>
+</head>
+<body>
+<div id="root"></div>
+
+<script type="text/babel" src="Header.jsx"></script>
+<script type="text/babel" src="HeroSection.jsx"></script>
+<script type="text/babel" src="StepsSection.jsx"></script>
+<script type="text/babel" src="FeaturesSection.jsx"></script>
+<script type="text/babel" src="FAQSection.jsx"></script>
+<script type="text/babel" src="WorkflowCards.jsx"></script>
+<script type="text/babel" src="CTASection.jsx"></script>
+
+<script type="text/babel">
+function App() {
+  const [screen, setScreen] = React.useState('home');
+
+  function handleGenerate() {
+    setScreen('generating');
+    setTimeout(() => setScreen('result'), 2200);
+  }
+
+  if (screen === 'generating') {
+    return (
+      <div style={{
+        minHeight: '100vh', display: 'flex', flexDirection: 'column',
+        alignItems: 'center', justifyContent: 'center',
+        background: 'rgb(1,4,11)', gap: 32,
+      }}>
+        <div style={{
+          width: 80, height: 80, borderRadius: '50%',
+          border: '3px solid rgba(52,141,255,0.2)',
+          borderTop: '3px solid rgb(52,141,255)',
+          animation: 'spin 0.9s linear infinite',
+        }} />
+        <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
+        <div style={{ textAlign: 'center' }}>
+          <div style={{ fontSize: 24, fontWeight: 700, color: '#fff', marginBottom: 8 }}>Generating your character sheet…</div>
+          <div style={{ fontSize: 16, color: 'rgb(157,162,174)' }}>Our AI is processing your photo. This takes about 30 seconds.</div>
+        </div>
+      </div>
+    );
+  }
+
+  if (screen === 'result') {
+    return (
+      <div style={{ minHeight: '100vh', background: 'rgb(1,4,11)' }}>
+        <Header />
+        <div style={{
+          maxWidth: 900, margin: '80px auto', padding: '0 40px',
+          display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 32,
+        }}>
+          <h1 style={{ fontSize: 36, fontWeight: 700, color: '#fff', textAlign: 'center' }}>Your Character Sheet is Ready!</h1>
+          <div style={{
+            display: 'flex', gap: 32, width: '100%', justifyContent: 'center',
+          }}>
+            <div style={{
+              flex: 1, maxWidth: 380, height: 460,
+              borderRadius: 16, overflow: 'hidden',
+              background: 'url(../../assets/character-sheet-preview.png) center/cover no-repeat, rgb(30,41,59)',
+              position: 'relative',
+            }}>
+              <div style={{
+                position: 'absolute', bottom: 16, right: 16,
+                background: 'rgba(85,40,162,0.8)', borderRadius: 8,
+                padding: '6px 14px',
+                fontFamily: 'Poppins,sans-serif', fontWeight: 700, fontStyle: 'italic',
+                fontSize: 14, letterSpacing: 2, color: 'rgba(255,255,255,0.6)',
+              }}>Character Sheet</div>
+            </div>
+            <div style={{
+              flex: 1, maxWidth: 380, height: 460,
+              borderRadius: 16,
+              background: 'url(../../assets/character-sheet-preview.png) right/cover no-repeat, rgb(30,41,59)',
+            }} />
+          </div>
+          <div style={{ display: 'flex', gap: 16 }}>
+            <button style={{
+              height: 60, borderRadius: 40, border: 'none', cursor: 'pointer',
+              background: 'linear-gradient(rgb(52,141,255) 0%, rgb(155,53,255) 100%)',
+              fontFamily: 'Poppins,sans-serif', fontSize: 20, fontWeight: 700,
+              color: '#fff', padding: '0 40px',
+            }}>Download Character Sheet</button>
+            <button
+              onClick={() => setScreen('home')}
+              style={{
+                height: 60, borderRadius: 40, cursor: 'pointer',
+                border: '1px solid rgba(52,141,255,0.5)',
+                background: 'transparent',
+                fontFamily: 'Poppins,sans-serif', fontSize: 20, fontWeight: 500,
+                color: 'rgb(52,141,255)', padding: '0 40px',
+              }}>Generate Another</button>
+          </div>
+          <p style={{ fontSize: 14, color: 'rgb(157,162,174)' }}>Share your creation • Save to cloud • Print ready</p>
+        </div>
+      </div>
+    );
+  }
+
+  // Home screen
+  return (
+    <div style={{ background: 'rgb(1,4,11)', minHeight: '100vh' }}>
+      <Header />
+      <div id="root-content">
+        <HeroSection onGenerate={handleGenerate} />
+        <StepsSection />
+        <FeaturesSection />
+        <FAQSection />
+        <WorkflowCards />
+        <CTASection />
+      </div>
+    </div>
+  );
+}
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<App />);
+</script>
+</body>
+</html>

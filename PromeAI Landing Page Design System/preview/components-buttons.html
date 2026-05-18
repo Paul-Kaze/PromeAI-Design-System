@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { background:#0f172a; font-family:'Poppins',sans-serif; padding:24px; display:flex; flex-direction:column; gap:20px; }
+.row { display:flex; gap:16px; align-items:center; flex-wrap:wrap; }
+.label { font-size:10px; color:#6b7280; font-weight:700; text-transform:uppercase; letter-spacing:.07em; margin-bottom:8px; }
+.btn-primary {
+  height:60px; border-radius:40px;
+  background:linear-gradient(rgb(52,141,255) 0%, rgb(155,53,255) 100%);
+  border:none; cursor:pointer;
+  font-family:'Poppins',sans-serif; font-size:21px; font-weight:700; color:#fff;
+  padding:0 40px;
+  box-shadow:0 0 10px rgba(0,0,0,0.25);
+}
+.btn-primary-sm {
+  height:60px; border-radius:40px;
+  background:linear-gradient(rgb(52,141,255) 0%, rgb(155,53,255) 100%);
+  border:none; cursor:pointer;
+  font-family:'Poppins',sans-serif; font-size:21px; font-weight:700; color:#fff;
+  padding:0 40px; white-space:nowrap;
+}
+.btn-secondary {
+  height:60px; border-radius:12px;
+  background:#fff; border:none; cursor:pointer;
+  font-family:'Poppins',sans-serif; font-size:20px; font-weight:700;
+  color:rgb(37,99,235); padding:0 48px; white-space:nowrap;
+}
+.note { font-size:11px; color:#6b7280; }
+</style>
+</head><body>
+
+<div>
+  <div class="label">Primary — Pill Gradient (full width / large)</div>
+  <div class="row">
+    <button class="btn-primary">Generate Character Sheet</button>
+    <div class="note">h:60px · r:40px · gradient-primary · 21px Bold</div>
+  </div>
+</div>
+
+<div>
+  <div class="label">Primary — Pill Gradient (compact)</div>
+  <div class="row">
+    <button class="btn-primary-sm">Try for free</button>
+    <div class="note">h:60px · r:40px · same gradient · compact width</div>
+  </div>
+</div>
+
+<div>
+  <div class="label">Secondary — White Rounded (on gradient background)</div>
+  <div style="background:linear-gradient(rgb(59,130,246) 0%, rgb(147,51,234) 100%); padding:20px 20px; border-radius:12px; display:inline-flex; align-items:center; gap:20px;">
+    <button class="btn-secondary">Try our character sheet for free</button>
+    <span class="note" style="color:rgba(255,255,255,0.7)">h:60px · r:12px · white bg · blue-600 text</span>
+  </div>
+</div>
+
+</body></html>
