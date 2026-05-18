@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>PromeAI — Character Sheet Generator</title>
+  <title>PromeAI — Landing Page Prototype</title>
   <style>
 @font-face { font-family:'Poppins'; src:url('../../fonts/Poppins-Regular.ttf') format('truetype'); font-weight:400; }
 @font-face { font-family:'Poppins'; src:url('../../fonts/Poppins-SemiBold.ttf') format('truetype'); font-weight:600; }
@@ -58,8 +58,8 @@ function App() {
         }} />
         <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
         <div style={{ textAlign: 'center' }}>
-          <div style={{ fontSize: 24, fontWeight: 700, color: '#fff', marginBottom: 8 }}>Generating your character sheet…</div>
-          <div style={{ fontSize: 16, color: 'rgb(157,162,174)' }}>Our AI is processing your photo. This takes about 30 seconds.</div>
+          <div style={{ fontSize: 24, fontWeight: 700, color: '#fff', marginBottom: 8 }}>Generating your result...</div>
+          <div style={{ fontSize: 16, color: 'rgb(157,162,174)' }}>Use this state to show product-specific progress or processing copy.</div>
         </div>
       </div>
     );
@@ -73,14 +73,14 @@ function App() {
           maxWidth: 900, margin: '80px auto', padding: '0 40px',
           display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 32,
         }}>
-          <h1 style={{ fontSize: 36, fontWeight: 700, color: '#fff', textAlign: 'center' }}>Your Character Sheet is Ready!</h1>
+          <h1 style={{ fontSize: 36, fontWeight: 700, color: '#fff', textAlign: 'center' }}>Your Result is Ready</h1>
           <div style={{
             display: 'flex', gap: 32, width: '100%', justifyContent: 'center',
           }}>
             <div style={{
               flex: 1, maxWidth: 380, height: 460,
               borderRadius: 16, overflow: 'hidden',
-              background: 'url(../../assets/character-sheet-preview.png) center/cover no-repeat, rgb(30,41,59)',
+              background: 'url(../../assets/sample-output-preview.png) center/cover no-repeat, rgb(30,41,59)',
               position: 'relative',
             }}>
               <div style={{
@@ -89,12 +89,12 @@ function App() {
                 padding: '6px 14px',
                 fontFamily: 'Poppins,sans-serif', fontWeight: 700, fontStyle: 'italic',
                 fontSize: 14, letterSpacing: 2, color: 'rgba(255,255,255,0.6)',
-              }}>Character Sheet</div>
+              }}>PromeAI Output</div>
             </div>
             <div style={{
               flex: 1, maxWidth: 380, height: 460,
               borderRadius: 16,
-              background: 'url(../../assets/character-sheet-preview.png) right/cover no-repeat, rgb(30,41,59)',
+              background: 'url(../../assets/sample-output-preview.png) right/cover no-repeat, rgb(30,41,59)',
             }} />
           </div>
           <div style={{ display: 'flex', gap: 16 }}>
@@ -103,7 +103,7 @@ function App() {
               background: 'linear-gradient(rgb(52,141,255) 0%, rgb(155,53,255) 100%)',
               fontFamily: 'Poppins,sans-serif', fontSize: 20, fontWeight: 700,
               color: '#fff', padding: '0 40px',
-            }}>Download Character Sheet</button>
+            }}>Download Result</button>
             <button
               onClick={() => setScreen('home')}
               style={{
@@ -112,9 +112,9 @@ function App() {
                 background: 'transparent',
                 fontFamily: 'Poppins,sans-serif', fontSize: 20, fontWeight: 500,
                 color: 'rgb(52,141,255)', padding: '0 40px',
-              }}>Generate Another</button>
+              }}>Create Another</button>
           </div>
-          <p style={{ fontSize: 14, color: 'rgb(157,162,174)' }}>Share your creation • Save to cloud • Print ready</p>
+          <p style={{ fontSize: 14, color: 'rgb(157,162,174)' }}>Replace these supporting actions with real product actions</p>
         </div>
       </div>
     );

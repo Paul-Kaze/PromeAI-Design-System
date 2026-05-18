@@ -1,0 +1,5 @@
+interface:
+  display_name: "PromeAI Landing Page Design"
+  short_description: "Dark PromeAI landing page style guide"
+  brand_color: "#348DFF"
+  default_prompt: "Use $promeai-landing-page-design to design a PromeAI-branded landing page for this product or campaign."

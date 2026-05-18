@@ -1,19 +1,19 @@
-// PromeAI — Workflow Cards Section ("Try Other Workflows")
+// PromeAI — Workflow Cards Section
 
 const WORKFLOWS = [
   {
-    title: 'Character Sheets',
-    desc: 'An indie studio used our tool to generate over 100 props for their new game in just one week, cutting their asset creation time by 80%.',
+    title: 'Primary Workflow',
+    desc: 'Describe the featured workflow, use case, or customer outcome for this card.',
     img: '../../assets/workflow-card.jpg',
   },
   {
-    title: '3D Model Generator',
-    desc: 'A furniture company created photorealistic 3D models of their entire catalog for a virtual showroom, saving thousands on photography and rendering.',
+    title: 'Related Workflow',
+    desc: 'Use this card for a related PromeAI tool, template, or next-step action.',
     img: null,
   },
   {
-    title: 'Architecture Concepts',
-    desc: 'A freelance architect quickly brought a new building concept to life for a client presentation, dramatically accelerating the feedback and approval process.',
+    title: 'Another Use Case',
+    desc: 'Show another audience, asset type, or creative scenario when it supports the page goal.',
     img: null,
   },
 ];

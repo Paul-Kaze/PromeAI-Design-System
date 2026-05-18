@@ -1,21 +1,21 @@
-// PromeAI — Features Section ("Why Choose Our Generator?")
+// PromeAI — Features Section
 
 const FEATURES = [
   {
-    title: 'Zero-Design Speed',
-    desc: 'Upload a selfie—our AI illustrates, aligns, and exports a print-ready character sheet in under 30 seconds, saving hours of hand-drawing or formatting.',
+    title: 'Fast Creative Output',
+    desc: 'Explain how the workflow helps users move from input to polished result with less manual production time.',
     img: '../../assets/feature-speed.png',
     imgRight: true,
   },
   {
-    title: 'Instant & Accurate Transformation',
-    desc: 'The conversion process is lightning fast and highly accurate. Within seconds, your uploaded photo is transformed into a detailed character illustration, eliminating the need for manual drawing or editing.',
+    title: 'Precise AI Control',
+    desc: 'Describe the controls, styles, prompts, or settings that keep the generated result aligned with the user intent.',
     img: '../../assets/feature-accuracy.png',
     imgRight: false,
   },
   {
-    title: 'High-Quality Visual Output',
-    desc: 'The AI ensures that the resulting character illustration is of high resolution and visually appealing. Whether you choose a fantasy, anime, or sci-fi style, the AI adapts to your selected template.',
+    title: 'Production-Ready Results',
+    desc: 'Show why the output is useful in real creative work, from presentation assets to final deliverables.',
     img: '../../assets/feature-quality.png',
     imgRight: true,
   },
@@ -28,7 +28,7 @@ function FeaturesSection() {
         <h2 style={{
           fontFamily: 'Poppins,sans-serif', fontSize: 36, fontWeight: 700,
           color: '#fff', marginBottom: 8,
-        }}>Why Choose Our Generator?</h2>
+        }}>Why Choose This Workflow?</h2>
         <p style={{
           fontFamily: 'Poppins,sans-serif', fontSize: 21, fontWeight: 500,
           color: 'rgb(157,162,174)',

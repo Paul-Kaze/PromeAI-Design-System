@@ -1,9 +1,9 @@
-// PromeAI — Steps Section ("How to use character sheet generator?")
+// PromeAI — Steps Section
 
 const STEPS = [
   {
-    label: 'Step 1: Upload',
-    desc: 'Upload your portrait photo. Our AI works with any clear headshot or full-body image.',
+    label: 'Step 1: Add input',
+    desc: 'Start with an upload, prompt, reference image, or product-specific source material.',
     gradient: 'linear-gradient(rgb(34,197,94) 0%, rgb(59,130,246) 100%)',
     icon: (
       <svg width="27" height="24" viewBox="0 0 27 24" fill="white">
@@ -12,8 +12,8 @@ const STEPS = [
     ),
   },
   {
-    label: 'Step 2: Choose a template',
-    desc: 'Select from our collection of professional character sheet templates and styles.',
+    label: 'Step 2: Choose direction',
+    desc: 'Select a style, mode, template, or setting that matches the desired output.',
     gradient: 'linear-gradient(rgb(236,72,153) 0%, rgb(155,53,255) 100%)',
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
@@ -24,7 +24,7 @@ const STEPS = [
   },
   {
     label: 'Step 3: Generate result',
-    desc: 'Get your high-quality character sheet ready for use in games and projects.',
+    desc: 'Review the generated result and guide users toward the primary next action.',
     gradient: 'linear-gradient(rgb(52,141,255) 0%, rgb(155,53,255) 100%)',
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
@@ -42,7 +42,7 @@ function StepsSection() {
       <h2 style={{
         fontFamily: 'Poppins,sans-serif', fontSize: 36, fontWeight: 700,
         color: '#fff', textAlign: 'center', marginBottom: 50,
-      }}>How to use character sheet generator?</h2>
+      }}>How It Works</h2>
       <div style={{
         display: 'flex', gap: 21, justifyContent: 'center',
         padding: '0 85px',

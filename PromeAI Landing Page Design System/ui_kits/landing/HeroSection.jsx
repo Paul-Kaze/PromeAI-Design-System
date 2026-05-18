@@ -32,11 +32,11 @@ function HeroSection({ onGenerate }) {
         <h1 style={{
           fontFamily: 'Poppins,sans-serif', fontSize: 41, fontWeight: 700,
           color: '#fff', lineHeight: 1.4, margin: 0,
-        }}>Character Sheet Generator</h1>
+        }}>AI Creation Landing Page</h1>
         <p style={{
           fontFamily: 'Poppins,sans-serif', fontSize: 18, color: 'rgb(237,237,241)',
           lineHeight: 1.4, margin: 0,
-        }}>Turn Your Photo into a Professional Character Sheet in 30 Seconds</p>
+        }}>Describe the user outcome in one clear, benefit-forward sentence</p>
 
         {/* Upload dropzone */}
         <div
@@ -58,7 +58,7 @@ function HeroSection({ onGenerate }) {
           </svg>
           <span style={{
             fontFamily: 'Poppins,sans-serif', fontSize: 16, color: 'rgb(215,216,224)',
-          }}>Upload a character</span>
+          }}>Upload, paste, or start from an example</span>
         </div>
 
         {/* Templates */}
@@ -66,9 +66,9 @@ function HeroSection({ onGenerate }) {
           <div style={{
             fontFamily: 'Poppins,sans-serif', fontSize: 15, fontWeight: 700,
             color: 'rgb(237,237,241)', marginBottom: 12,
-          }}>Choose a template</div>
+          }}>Choose a style</div>
           <div style={{ display: 'flex', gap: 12 }}>
-            {['Fantasy', 'Anime', 'Sci-Fi', 'Portrait'].map((t, i) => (
+            {['Style A', 'Style B', 'Style C', 'Style D'].map((t, i) => (
               <div key={t} style={{
                 width: 108, height: 72, borderRadius: 8,
                 background: `linear-gradient(135deg, rgb(30,41,59), rgb(${i%2===0?'47,16,160':'45,0,225'}))`,
@@ -91,11 +91,11 @@ function HeroSection({ onGenerate }) {
             fontFamily: 'Poppins,sans-serif', fontSize: 21, fontWeight: 700,
             color: '#fff', boxShadow: '0 0 10px rgba(0,0,0,0.25)',
           }}>
-          Generate Character Sheet
+          Start Creating
         </button>
       </div>
 
-      {/* Right — character preview */}
+      {/* Right — product/result preview */}
       <div style={{
         position: 'absolute', right: 127, top: 80, width: 495, height: 430,
         zIndex: 1,
@@ -107,19 +107,19 @@ function HeroSection({ onGenerate }) {
         <div style={{
           position: 'absolute', left: 0, top: 0, width: 213, height: 430,
           borderRadius: 12,
-          background: 'url(../../assets/character-sheet-preview.png) center/cover no-repeat',
+          background: 'url(../../assets/sample-output-preview.png) center/cover no-repeat',
         }} />
         <div style={{
           position: 'absolute', left: 236, top: 39, width: 259, height: 274,
           borderRadius: 12,
-          background: 'url(../../assets/character-sheet-preview.png) center/cover no-repeat',
+          background: 'url(../../assets/sample-output-preview.png) center/cover no-repeat',
         }} />
         <div style={{
           position: 'absolute', right: 0, bottom: 80,
           fontFamily: 'Barlow Condensed, Poppins, sans-serif',
           fontWeight: 700, fontStyle: 'italic', fontSize: 30,
           letterSpacing: 3, color: 'rgba(255,255,255,0.3)',
-        }}>Character Sheet</div>
+        }}>PromeAI Output</div>
       </div>
     </section>
   );

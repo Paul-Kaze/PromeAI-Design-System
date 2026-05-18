@@ -2,24 +2,24 @@
 
 const FAQ_ITEMS = [
   {
-    q: 'How does the photo-to-character sheet conversion work?',
-    a: 'Our AI analyzes your uploaded photo, identifies facial features and body pose, then generates a stylized character illustration matched to your chosen template — all in under 30 seconds.',
+    q: 'How does this PromeAI workflow work?',
+    a: 'Replace this answer with a short explanation of the current workflow, from user input to generated result.',
   },
   {
-    q: 'Can I choose the style of the character illustration?',
-    a: 'Yes! You can choose from a variety of styles including fantasy, anime, sci-fi, and portrait styles. Each template produces a uniquely styled character sheet.',
+    q: 'Can I control the final style?',
+    a: 'Describe the available styles, modes, templates, prompts, or settings for this page.',
   },
   {
-    q: 'How accurate is the AI in converting my photo?',
-    a: 'The AI produces highly accurate results from clear portrait photos. It preserves key facial characteristics while adapting the style to match your chosen template.',
+    q: 'What kind of input works best?',
+    a: 'Give product-specific guidance for uploads, prompts, references, dimensions, or source quality.',
   },
   {
-    q: 'How long does it take to generate a character sheet?',
-    a: 'Most character sheets are generated in under 30 seconds, depending on photo complexity and server load.',
+    q: 'How long does generation take?',
+    a: 'Use real timing only when confirmed. Otherwise, explain that timing depends on complexity and server load.',
   },
   {
-    q: 'Is the character sheet generator easy to use?',
-    a: 'Absolutely. Just upload a photo, choose a template, and click generate. No design skills required.',
+    q: 'Who is this workflow for?',
+    a: 'Name the audience and use case for the current landing page.',
   },
 ];
 
